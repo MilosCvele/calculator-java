@@ -1,0 +1,28 @@
+Aplikacija ne podrzava prioritet racunarskih operacija u svim slucajevim, ne podrzava unarne operacije, deljenje sa 0 se moze bolje obraditi.
+
+Jedinicni test:
+
+import org.junit.jupiter.api.Test;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class CalculatorTest {
+
+    @Test
+    void testCalculateMethod() {
+        List<Double> numbers = new ArrayList<>();
+        List<String> operations = new ArrayList<>();
+
+        numbers.add(2.0);
+        numbers.add(3.0);
+        operations.add("+");
+
+        Calculator.Calculate(numbers, operations);
+        assertEquals(5.0, Calculator.finalResult);
+
+        // Reset for the next test
+        Calculator.finalResult = 0.0;
+    }
+}
